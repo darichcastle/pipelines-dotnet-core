@@ -64,3 +64,12 @@ steps:
     publishWebProjects: True
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: True
+    
+   
+   
+#Deploy a Web Deploy package (ASP.NET)
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'Azure for Students'
+    appName: 'aspnet042'
+    package: $(System.DefaultWorkingDirectory)/**/*.zip
